@@ -1,0 +1,3 @@
+[submodule "library/vertebrae"]
+	path = library/vertebrae
+	url = git@github.com:Evisions/vertebrae.git
