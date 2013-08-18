@@ -1,3 +1,6 @@
 [submodule "library/vertebrae"]
 	path = library/vertebrae
 	url = git@github.com:Evisions/vertebrae.git
+[submodule "library/jquery"]
+	path = library/jquery
+	url = git@github.com:jquery/jquery.git
