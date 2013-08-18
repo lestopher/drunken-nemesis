@@ -4,3 +4,12 @@
 [submodule "library/jquery"]
 	path = library/jquery
 	url = git@github.com:jquery/jquery.git
+[submodule "library/backbone"]
+	path = library/backbone
+	url = git@github.com:jashkenas/backbone.git
+[submodule "library/underscore"]
+	path = library/underscore
+	url = git@github.com:jashkenas/underscore.git
+[submodule "library/handlebars"]
+	path = library/handlebars
+	url = git@github.com:wycats/handlebars.js.git
