@@ -5,6 +5,7 @@ require.config({
     backbone             : 'library/backbone/backbone',
     underscore           : 'library/underscore/underscore',
     vertebrae            : 'library/vertebrae',
+    evisions             : 'library/vertebrae',
     'handlebars.runtime' : 'library/handlebars/dist/handlebars.runtime'
   },
   shim: {
@@ -12,7 +13,7 @@ require.config({
       exports: 'jQuery'
     },
     backbone: {
-      exports: 'Backbone'
+      exports: 'Backbone',
       deps: ['jquery', 'underscore']
     },
     underscore: {

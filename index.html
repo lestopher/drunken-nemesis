@@ -2,6 +2,15 @@
 <head>
   <meta charset="UTF-8">
   <title>IRB</title>
+  <script src="./library/requirejs/require.js"></script>
+  <script src="./config.js"></script>
+  <script>
+    require(['app/main'], function(App) {
+      var app = new App(document.body);
+      window.app = app;
+      app.start();
+    }); 
+  </script>
 </head>
 <body>
     

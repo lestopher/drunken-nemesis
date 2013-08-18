@@ -1,8 +1,23 @@
 module.exports = function(grunt) {
-  
+
   grunt.initConfig({
-    
+    connect: {
+      server: {
+        options: {
+          port: 9001
+        }
+      }
+    },
+    less: {
+      dev: {
+        files: {
+          'css/main.css': 'app/styles/main.less'
+        }
+      }
+    }
   });
 
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
+
+  grunt.registerTask('default', ['connect:server:keepalive']);
 };
