@@ -1,13 +1,25 @@
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
+    config: {
+      server: {
+        port: 9292,
+        host: 'localhost'
+      },
+      client: {
+        port: 9001
+      }
+    },
     connect: {
       server: {
         options: {
-          port: 9001,
+          port: "<%= config.client.port %>",
           middleware: function(connect, options) {
             return [
-               require('connect-livereload')(),
+              proxySnippet,
+              require('connect-livereload')(),
               // Serve static files.
               connect.static(options.base),
               // Make empty directories browsable.
@@ -15,7 +27,16 @@ module.exports = function(grunt) {
             ];
           }
         }
-      }
+      },
+      proxies: [
+        {
+            context: '/person',
+            host: '<%= config.server.host %>',
+            port: '<%= config.server.port %>',
+            https: false,
+            changeOrigin: false
+        }
+      ]
     },
     less: {
       dev: {
@@ -25,7 +46,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['app/**/*.js']
+      all: ['Gruntfile.js', 'config.js', 'app/**/*.js']
     },
     watch: {
       less: {
@@ -47,5 +68,5 @@ module.exports = function(grunt) {
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint:all', 'less:dev', 'connect:server', 'watch']);
+  grunt.registerTask('default', ['jshint:all', 'less:dev', 'configureProxies', 'connect:server', 'watch']);
 };
