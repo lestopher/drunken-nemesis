@@ -10,9 +10,9 @@ define([
     },
 
     start: function() {
-      this.$el.get(0).innerHTML = 'Hello world!!!';
+      this.$el.get(0).innerHTML = 'Oh wait...i changed';
     }
   });
 
-  return App
+  return App;
 });
