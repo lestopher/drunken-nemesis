@@ -63,10 +63,26 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+    exec: {
+      init_submodule: {
+        cmd: 'git submodule init'
+      },
+      update_submodule: {
+        cmd: 'git submodule update --recursive'
+      },
+      build_jquery: {
+        cmd: 'cd library && cd jquery && npm install && grunt',
+        stdout: false,
+        stderr: false
+      }
     }
   });
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
   grunt.registerTask('default', ['jshint:all', 'less:dev', 'configureProxies', 'connect:server', 'watch']);
+
+  grunt.registerTask('setup', ['exec:init_submodule', 'exec:update_submodule', 'exec:build_jquery']);
+  
 };
