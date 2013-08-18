@@ -65,11 +65,8 @@ module.exports = function(grunt) {
       }
     },
     exec: {
-      init_submodule: {
-        cmd: 'git submodule init'
-      },
-      update_submodule: {
-        cmd: 'git submodule update --recursive'
+      setup_submodules: {
+        cmd: 'git submodule update --init --recursive'
       },
       build_jquery: {
         cmd: 'cd library && cd jquery && npm install && grunt',
@@ -83,6 +80,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['jshint:all', 'less:dev', 'configureProxies', 'connect:server', 'watch']);
 
-  grunt.registerTask('setup', ['exec:init_submodule', 'exec:update_submodule', 'exec:build_jquery']);
-  
+  grunt.registerTask('setup', ['exec:setup_submodules', 'exec:build_jquery']);
+
 };
