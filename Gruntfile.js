@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       proxies: [
         {
-            context: '/person',
+            context: '/api',
             host: '<%= config.server.host %>',
             port: '<%= config.server.port %>',
             https: false,
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         cmd: 'git submodule update --init --recursive'
       },
       build_jquery: {
-        cmd: 'cd library && cd jquery && npm install && grunt',
+        cmd: ['cd library', 'cd jquery', 'npm install', 'grunt'].join(' && '),
         stdout: false,
         stderr: false
       }
