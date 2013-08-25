@@ -1,7 +1,8 @@
 define([
   'vertebrae/object',
+  'app/base/helper',
   'jquery'
-], function(EVIObject, $) {
+], function(EVIObject, helper, $) {
 
   var App = EVIObject.extend({
 
@@ -10,7 +11,7 @@ define([
     },
 
     start: function() {
-      this.$el.get(0).innerHTML = 'App has started';
+      this.$el.get(0).innerHTML = helper.template('init');
     }
   });
 

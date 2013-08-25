@@ -1,4 +1,5 @@
-var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest,
+    path         = require('path');
 
 module.exports = function(grunt) {
 
@@ -38,6 +39,22 @@ module.exports = function(grunt) {
         }
       ]
     },
+    handlebars: {
+      compile: {
+        options: {
+          amd: true,
+          namespace: 'Templates',
+          processName: function(filePath) {
+            var ext = path.extname(filePath);
+            
+            return path.basename(filePath).slice(0, -ext.length);
+          }
+        },
+        files: {
+          'app/templates.js': ['library/vertebrae/**/*.handlebars', 'app/**/*.handlebars']
+        }
+      }
+    },
     less: {
       dev: {
         files: {
@@ -46,7 +63,11 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['Gruntfile.js', 'config.js', 'app/**/*.js']
+      all: ['Gruntfile.js', 'config.js', 'app/**/*.js'],
+      options: {
+        ignores: ['app/templates.js'],
+        jshintrc: './.jshintrc'
+      }
     },
     watch: {
       less: {
@@ -59,6 +80,13 @@ module.exports = function(grunt) {
       scripts: {
         files: 'app/**/*.js',
         tasks: ['jshint:all'],
+        options: {
+          livereload: true
+        }
+      },
+      templates: {
+        files: 'app/**/*.handlebars',
+        tasks: ['handlebars:compile'],
         options: {
           livereload: true
         }
@@ -78,7 +106,7 @@ module.exports = function(grunt) {
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['jshint:all', 'less:dev', 'configureProxies', 'connect:server', 'watch']);
+  grunt.registerTask('default', ['jshint:all', 'less:dev', 'handlebars:compile', 'configureProxies', 'connect:server', 'watch']);
 
   grunt.registerTask('setup', ['exec:setup_submodules', 'exec:build_jquery']);
 

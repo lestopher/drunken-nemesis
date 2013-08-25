@@ -1,5 +1,10 @@
 require.config({
   baseUrl: './',
+  map: {
+    '*': {
+      'handlebars': 'handlebars.runtime'
+    }
+  },
   paths: {
     jquery               : 'library/jquery/dist/jquery',
     backbone             : 'library/backbone/backbone',

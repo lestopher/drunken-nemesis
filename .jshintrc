@@ -7,5 +7,12 @@
   "noarg"     : true,
   "smarttabs" : true,
   "trailing"  : true,
-  "undef"     : true
+  "undef"     : true,
+  "debug"     : true,
+  "globals"   : {
+    "define"  : true,
+    "require" : true,
+    "window"  : true,
+    "module"  : true
+  }
 }
