@@ -20,4 +20,55 @@ html, body {
   @import '../authenticate/authenticate.less';
 }
 
+#content {
+  position: absolute;
+  top: @headerHeight;
+  bottom: 0;
+  width: 100%;
+}
 
+#header {
+  width: @headerWidth;
+  height: @headerHeight;
+  background-color: @headerBackground;
+  color: @headerColor;
+  padding: 0px 30px;
+  @import '../header/header.less';
+}
+
+#sidebar {
+  width: @sidebarWidth;
+  height: @sidebarHeight;
+  min-height: @sidebarMinHeight;
+  background-color: @sidebarBackground;
+  color: @sidebarColor;
+}
+
+#dashboard {
+  position: absolute;
+  top: 0;
+  left: @sidebarWidth;
+  bottom: 0;
+  right: 0;
+  background-color: @dashboardBackground;
+  color: @dashboardColor;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+  #header {
+    height: auto;
+  }
+  #content {
+    position: static;
+  }
+  #sidebar {
+    position: static;
+    width: 100%;
+    min-height: 0;
+  }
+  #dashboard {
+    position: static;
+    width: 100%;
+  }
+}

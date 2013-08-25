@@ -1,9 +1,10 @@
 define([
   'evisions/helper',
-  'app/templates'
-], function(helper, templates) {
+  'app/templates',
+  'handlebars.runtime'
+], function(helper, templates, handlebars) {
 
-  window.Handlebars = window.Handlebars || {};
+  window.Handlebars = handlebars || window.Handlebars || {};
 
   window.Handlebars.templates = templates;
 

@@ -3,16 +3,23 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <h1>Login</h1>
+      <div class="loginError inputError alert alert-danger"></div>
       <div class="well">
+        <!-- Email Input Field -->
         <div class="form-group">
           <label>Email</label>
-          <input type="email" class="form-control" placeholder="Enter Email">
+          <div class="emailError inputError alert alert-danger"></div>
+          <input type="email" class="form-control emailInput" placeholder="Enter Email">
         </div>
+        <!-- Passowrd Input Field -->
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" placeholder="Enter Password">
+          <div class="passwordError inputError alert alert-danger"></div>
+          <input type="password" class="form-control passwordInput" placeholder="Enter Password">
         </div>
-        <a class="btn btn-default pull-right">Login</a>
+        <!-- Login Button -->
+        <a class="btn btn-primary pull-right">Login</a>
+        <div class="loadingSpinnerSmall pull-left"></div>
         <div class="clear"></div>
       </div>
     </div>

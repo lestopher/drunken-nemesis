@@ -10,9 +10,12 @@
   "undef"     : true,
   "debug"     : true,
   "globals"   : {
-    "define"  : true,
-    "require" : true,
-    "window"  : true,
-    "module"  : true
+    "define"       : true,
+    "require"      : true,
+    "window"       : true,
+    "module"       : true,
+    "alert"        : true,
+    "setTimeout"   : true,
+    "clearTimeout" : true
   }
 }

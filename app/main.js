@@ -3,8 +3,11 @@ define([
   'app/base/helper',
   'jquery',
 
-  'app/authenticate/authenticate.controller'
-], function(EVIObject, helper, $, AuthenticateController) {
+  'app/authenticate/authenticate.controller',
+  'app/irb.controller'
+], function(EVIObject, helper, $, AuthenticateController, IRBController) {
+
+  window.Handlebars = window.Handlebars || {};
 
   var App = EVIObject.extend({
 
@@ -28,7 +31,12 @@ define([
 
     userIsAuthenticated: function(user) {
       this.getAuthenticateController().destroy();
-      this.$el.find('#weclome').html("welcome " + user.first_name);
+
+      this.$el.empty();
+
+      this.IRBController = new IRBController(user);
+      this.IRBController.setupViewProperties(this.$el);
+
     }
   });
 

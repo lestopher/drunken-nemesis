@@ -1,0 +1,18 @@
+<div>
+  <div class="col-md-2 col-sm-12"></div>
+
+  <div class="col-md-5 col-sm-12 col-md-offset-1 navigation">
+    {{#each navigationLinks}}
+      <div class="navLink" style="width: {{../navWidth}};">
+        {{this}}
+        <div class="highlight"></div>
+      </div>
+    {{/each}}
+  </div>
+  <div class="col-md-2 col-sm-12 searchbar">
+      <input type="search" class="col-sm-12 form-control" placeholder="Search">
+  </div>
+  <div class="col-md-2 col-sm-12 persona">
+    {{user}}
+  </div>
+</div>
