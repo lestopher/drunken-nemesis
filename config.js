@@ -2,7 +2,8 @@ require.config({
   baseUrl: './',
   map: {
     '*': {
-      'handlebars': 'handlebars.runtime'
+      'handlebars': 'handlebars.runtime',
+      'vertebrae' : 'evisions'
     }
   },
   paths: {

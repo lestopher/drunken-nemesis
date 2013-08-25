@@ -1,8 +1,23 @@
 @bootstrap: '../../library/bootstrap/less';
 @import '@{bootstrap}/bootstrap.less';
 @import 'variables.less';
+@import 'common.less';
 
 
 html, body {
   background: white;
+  height: 100%;
+  width: 100%;
 }
+
+#irbApp {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+#login {
+  @import '../authenticate/authenticate.less';
+}
+
+
