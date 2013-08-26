@@ -1,0 +1,96 @@
+padding: 10px;
+padding-bottom: 0px;
+padding-right: 0px;
+
+.widgetContainerTop {
+
+}
+
+.widgetContainerLeft {
+  float: left;
+  min-height: 10px;
+  width: 33%;
+}
+.widgetContainerRight {
+  float: left;
+  width: 67%;
+  min-height: 10px;
+}
+
+// Widget less imports
+.dashboardWidget {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  background: transparent;
+
+  .widgetHeader {
+    height: 30px;
+    position: relative;
+    display: block;
+    line-height: 30px;
+    color: @primaryColor;
+    margin-bottom: 10px;
+
+
+    .titleBar {
+      padding: 0px 15px;
+      height: 100%;
+      background-color: @headerOneColor;
+      text-transform: uppercase;
+
+      &.hasSettings {
+        position: absolute;
+        right: 35px;
+        left: 0;
+      }
+    }
+
+    .widgetSettings {
+      height: 100%;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: @headerOneColor;
+      text-align: center;
+      cursor: pointer;
+
+      .settingsIcon {
+        line-height: 25px;
+      }
+    }
+    .widgetName {
+      float: left;
+    }
+    .extraButtons {
+      float: right;
+    }
+  }
+
+  .widgetBody {
+    background: @dashboardWidgetBackground;
+    -webkit-box-shadow:  0px 2px 1px rgba(216, 216, 216, 1);
+    box-shadow:  0px 2px 1px rgba(216, 216, 216, 1);
+
+    .widgetEntry {
+      height: 50px;
+      padding: 0px 15px;
+      line-height: 50px;
+      vertical-align: middle;
+      .entryWrapper {
+        line-height: 1.2em;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+.welcome {
+ @import 'widgets/welcome/welcome.less' ;
+}
+
+.notifications {
+  @import 'widgets/notifications/notifications.less';
+}

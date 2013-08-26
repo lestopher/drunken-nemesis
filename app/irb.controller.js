@@ -4,14 +4,16 @@ define([
   'app/irb.view',
   'app/base/helper',
 
-  'app/header/header.controller'
-], function(EVIController, IRBView, helper, HeaderController) {
+  'app/header/header.controller',
+  'app/dashboard/dashboard.controller'
+], function(EVIController, IRBView, helper, HeaderController, DashboardController) {
 
   var IRBController = EVIController.extend({
 
     properties: [
       'User',
-      'HeaderController'
+      'HeaderController',
+      'DashboardController'
     ],
 
     initialize: function(user) {
@@ -22,11 +24,14 @@ define([
 
     initializeControllers: function() {
       this.setHeaderController(new HeaderController(this.getUser()));
+      this.setDashboardController(new DashboardController(this.getUser()));
     },
 
     setupControllerViews: function() {
       var view = this.getView();
+
       this.getHeaderController().setupViewProperties(view.getHeaderElement());
+      this.getDashboardController().setupViewProperties(view.getDashboardElement());
     },
 
     setupView: function() {
