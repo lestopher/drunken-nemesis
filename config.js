@@ -12,6 +12,7 @@ require.config({
     underscore           : 'library/underscore/underscore',
     vertebrae            : 'library/vertebrae',
     evisions             : 'library/vertebrae',
+    bootstrap            : 'library/bootstrap/dist/js/bootstrap',
     'handlebars.runtime' : 'library/handlebars/dist/handlebars.runtime'
   },
   shim: {
