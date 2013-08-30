@@ -3,6 +3,8 @@ define([
   'jquery',
 
   'app/base/helper',
+  // jQuery UI is not AMD but adds sortable
+  'jqueryui'
 ], function(EVIView, $, helper) {
 
   var DashboardView = EVIView.extend({
@@ -13,6 +15,28 @@ define([
 
     render: function() {
       this.$el.html(this.renderInitFragment());
+
+      this.setupSortable();
+    },
+    
+    setupSortable: function() {
+      var leftContainer  = this.$('.widgetContainerLeft'),
+          rightContainer = this.$('.widgetContainerRight');
+
+      leftContainer.sortable({
+        // connectWith: rightContainer,
+        connectWith: '.widgetContainerRight',
+        items: '> .dashboardWidget',
+        handle: '.widgetHeader'
+      });
+
+      rightContainer.sortable({
+        // connectWith: leftContainer,
+        connectWith: '.widgetContainerLeft',
+        items: '> .dashboardWidget',
+        handle: '.widgetHeader'
+      });
+
     },
 
     createElementAtTop: function() {

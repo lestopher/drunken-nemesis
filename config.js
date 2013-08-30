@@ -8,6 +8,7 @@ require.config({
   },
   paths: {
     jquery               : 'library/jquery/dist/jquery',
+    jqueryui             : 'library/jqueryui/jqueryui',
     backbone             : 'library/backbone/backbone',
     underscore           : 'library/underscore/underscore',
     vertebrae            : 'library/vertebrae',
@@ -18,6 +19,9 @@ require.config({
   shim: {
     jquery: {
       exports: 'jQuery'
+    },
+    jqueryui: {
+      deps: ['jquery']
     },
     backbone: {
       exports: 'Backbone',

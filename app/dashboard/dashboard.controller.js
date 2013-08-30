@@ -27,6 +27,10 @@ define([
 
       this.placeWidget(this.createWidget('welcome'));
       this.placeWidget(this.createWidget('notifications'));
+
+      this.placeWidget(this.createWidget('notifications'), 'left');
+      this.placeWidget(this.createWidget('notifications'), 'left');
+      this.placeWidget(this.createWidget('notifications'), 'right');
     },
 
     createWidget: function(name, settings) {
